@@ -1,9 +1,10 @@
+---
 services:
   cloudflare-dynamic-dns:
-    image: mxmlndml/cloudflare-dynamic-dns:latest
+    image: chaussebenjamin/cloudflare-dynamic-dns:latest
     environment:
-      - "API_KEY=${API_KEY}"
-      - "ZONE_ID=${ZONE_ID}"
-      - "DOMAIN_NAMES=example.com,dyndns.example.com"
+      - API_KEY=${API_KEY}
+      - ZONE_ID=${ZONE_ID}
+      - DOMAIN_NAMES=example.com,dyndns.example.com
       # - "RECORD_TYPES=A"
       # - "INTERVAL=5"

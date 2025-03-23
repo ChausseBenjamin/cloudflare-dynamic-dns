@@ -31,7 +31,7 @@ pulling the pre-built Docker container and running it with the necessary
 environment variables
 
 ```sh
-docker run -d -e API_KEY=123 -e ZONE_ID=023e105f4ecef8ad9ca31a8372d0c353 -e DOMAIN_NAMES=example.com,*.example.com mxmlndml/cloudflare-dynamic-dns
+docker run -d -e API_KEY=123 -e ZONE_ID=023e105f4ecef8ad9ca31a8372d0c353 -e DOMAIN_NAMES=example.com,*.example.com chaussebenjamin/cloudflare-dynamic-dns
 ```
 
 Alternatively you can copy the `docker-compose.yml` and `.env.template` from this repository into an
