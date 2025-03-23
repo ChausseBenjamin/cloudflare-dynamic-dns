@@ -1,5 +1,12 @@
 # Dynamic DNS Updates with Cloudflare
 
+> [!NOTE]
+> This program was originally written by [mxmlndml]. This fork merely
+> optimizes the docker image with better (more optimized) compiles flags
+> and strips out the entire Go runtime from the final image (making the final
+> image <3MB instead of ~900MB). Go thank him for his work developing this, not
+> me ;)
+
 ![cloudflare-dynamic-dns](https://github.com/mxmlndml/cloudflare-dynamic-dns/assets/42516330/fc6e7c3e-eb96-4fdf-924e-cf86dab70b4b)
 
 This Docker container offers a straightforward and efficient solution for
@@ -64,3 +71,5 @@ breakdown of the available configuration variables:
 - **`INTERVAL`** _defaults to `5`_
   \
   Time interval in minutes between DNS updates
+
+[1]: github.com/mxmlndml/cloudflare-dynamic-dns
