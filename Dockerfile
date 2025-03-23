@@ -16,7 +16,7 @@ RUN upx --best /app
 
 FROM scratch AS service
 
-WORKDIR /
+COPY --from=compile /etc/ssl/certs/ca-certificates.crt /etc/ssl/certs/
 COPY --from=compressor /app .
 
 ENTRYPOINT ["/app"]
