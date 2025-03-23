@@ -7,11 +7,16 @@ WORKDIR /usr/src/app
 # RUN go mod download && go mod verify
 
 COPY . .
-RUN CGO_ENABLED=0 GOOS=linux go build -v -o /usr/local/bin/app ./...
+RUN CGO_ENABLED=0 GOOS=linux go build -ldflags="-s -w" -o /app ./...
+
+FROM alpine:latest AS compressor
+RUN apk add --no-cache upx
+COPY --from=compile /app /app
+RUN upx --best /app
 
 FROM scratch AS service
 
 WORKDIR /
-COPY --from=compile /usr/local/bin/app .
+COPY --from=compressor /app .
 
 ENTRYPOINT ["/app"]
