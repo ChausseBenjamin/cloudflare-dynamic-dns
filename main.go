@@ -1,12 +1,16 @@
 package main
 
 import (
+	_ "embed"
 	"fmt"
 	"log"
 	"strings"
 	"sync"
 	"time"
 )
+
+//go:embed title.txt
+var appNameASCII string
 
 type publicIP struct {
 	v4 string
@@ -60,11 +64,7 @@ func getDNSRecords() []DNSRecords {
 }
 
 func initialize() {
-	fmt.Println("  _______             _______               ___                       _       ___  _  ______")
-	fmt.Println(" / ___/ /__  __ _____/ / _/ /__ ________   / _ \\__ _____  ___ ___ _  (_)___  / _ \\/ |/ / __/")
-	fmt.Println("/ /__/ / _ \\/ // / _  / _/ / _ `/ __/ -_) / // / // / _ \\/ _ `/  ' \\/ / __/ / // /    /\\ \\  ")
-	fmt.Println("\\___/_/\\___/\\_,_/\\_,_/_//_/\\_,_/_/  \\__/ /____/\\_, /_//_/\\_,_/_/_/_/_/\\__/ /____/_/|_/___/  ")
-	fmt.Println("                                              /___/                                         ")
+	fmt.Print(appNameASCII)
 
 	var recordType string
 	if UseIPv4() && UseIPv6() {
